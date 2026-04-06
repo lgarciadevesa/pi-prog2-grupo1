@@ -6,7 +6,7 @@ const localData = {
     fotoPerfil: "profile-default.png",
   },
  
-  productos: [
+  products: [
     {
       id: 1,
       nombre: "Auriculares Bluetooth Sony WH-1000XM5",

@@ -1,27 +1,29 @@
-const products = require('../Data/data');
+const localData = require('../localData/data');
+const products = require('../localData/data');
 
 const productsController = {
 
     listar: function (req, res) {
-        return res.render('products', { products: products.lista });
+        return res.render('products', { products: localData.products });
 
     },
 
-    
+
 
     id: function(req, res) {
         let idBuscado = Number(req.params.id);
         let productPorId = null;
 
-        for (let i = 0; i < products.lista.length; i++) {
-            if (products.lista[i].id === idBuscado) {
-                productPorId = products.lista[i];
+        for (let i = 0; i < localData.products.length; i++) {
+            if (localData.products[i].id === idBuscado) {
+                productPorId = localData.products[i];
             }
         }
 
         return res.render("product", {
-            products: productPorId,
+            data: productPorId,
             titulo: "Detalles del producto " + idBuscado
         });
     }
 };
+module.exports = productsController;

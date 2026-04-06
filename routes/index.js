@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var products = require('../data/products');
+
+const localData = require('../localData/data');
 
 router.get('/', function(req, res, next) {
-    console.log(products.lista);
-  
-  res.render('index', { products: products.lista });
+    console.log(localData.products);
+
+  res.render('index', { products: localData.products });
 });
 
 router.get('/login', function(req, res, next) {
