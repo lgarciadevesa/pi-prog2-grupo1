@@ -1,4 +1,4 @@
-const products = require('../data/products');
+const products = require('../Data/data');
 
 const productsController = {
 
@@ -25,4 +25,3 @@ const productsController = {
         });
     }
 };
-module.exports = productsController;
