@@ -1,20 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const productController = require('../controllers/productController');
 
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
-
-router.get('/add', function(req, res, next) {
-  res.render('product-add');
-});
-
-router.get('/edit/:id', function(req, res, next) {
-  res.render('product-edit');
-});
-
-router.get('/:id', function(req, res, next) {
-  res.render('product');
-});
+router.get('/', productController.listar);
+router.get('/detalle/:id', productController.id);
 
 module.exports = router;
