@@ -1,4 +1,4 @@
-const bandas = require('../data/products');
+const bandas = require('../localData/data');
 
 const productosController = {
 
@@ -25,3 +25,5 @@ const productosController = {
         });
     }
 };
+
+module.exports = productosController;
