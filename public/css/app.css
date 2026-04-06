@@ -4,12 +4,12 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
+  --yellow: #378ed9;
   --dark-blue: #03264C;
-  --light-blue: #1259c3;
+  --light-blue: #39c3db;
   --gray: #666666;
   --light-gray: #ebebeb;
-  --green: #39b54a;
+  --green: #39c3db;
   --base-font-family: 'Roboto', sans-serif
 }
 
@@ -48,6 +48,11 @@ a {
 figure {
   margin: 0;
   padding: 0;
+}
+
+header img {
+  height: 60px;
+  width: auto;
 }
 
 img {
