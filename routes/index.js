@@ -5,7 +5,6 @@ const localData = require('../localData/data');
 
 router.get('/', function(req, res, next) {
     console.log(localData.products);
-
   res.render('index', { products: localData.products });
 });
 
@@ -22,7 +21,7 @@ router.get('/profile', function(req, res, next) {
 });
 
 router.get('/search', function(req, res, next) {
-  res.render('search-results');
+  res.render('search');
 });
 
 module.exports = router;
