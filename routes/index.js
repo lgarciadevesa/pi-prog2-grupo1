@@ -1,8 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var products = require('../data/products');
 
 router.get('/', function(req, res, next) {
-  res.render('index');
+    console.log(products.lista);
+  
+  res.render('index', { products: products.lista });
 });
 
 router.get('/login', function(req, res, next) {

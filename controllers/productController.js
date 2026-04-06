@@ -1,9 +1,9 @@
-const bandas = require('../data/products');
+const products = require('../data/products');
 
-const productosController = {
+const productsController = {
 
     listar: function (req, res) {
-        return res.render('productos', { productos: productos.lista });
+        return res.render('products', { products: products.lista });
 
     },
 
@@ -11,17 +11,18 @@ const productosController = {
 
     id: function(req, res) {
         let idBuscado = Number(req.params.id);
-        let productoPorId = null;
+        let productPorId = null;
 
-        for (let i = 0; i < productos.lista.length; i++) {
-            if (productos.lista[i].id === idBuscado) {
-                productoPorId = productos.lista[i];
+        for (let i = 0; i < products.lista.length; i++) {
+            if (products.lista[i].id === idBuscado) {
+                productPorId = products.lista[i];
             }
         }
 
         return res.render("product", {
-            productos: productoPorId,
+            products: productPorId,
             titulo: "Detalles del producto " + idBuscado
         });
     }
 };
+module.exports = productsController;
