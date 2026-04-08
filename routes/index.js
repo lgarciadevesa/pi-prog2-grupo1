@@ -21,7 +21,7 @@ router.get('/profile', function(req, res, next) {
 });
 
 router.get('/search', function(req, res, next) {
-  res.render('search');
+  res.render('search-results');
 });
 
 module.exports = router;
