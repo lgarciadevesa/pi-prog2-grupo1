@@ -12,7 +12,7 @@ const localData = {
       nombre: "Auriculares Bluetooth Sony WH-1000XM5",
       descripcion:
         "Auriculares inalámbricos premium con cancelación de ruido líder en la industria, hasta 30 horas de batería y conectividad multipunto.",
-      imagen: "auriculares_sony.jpg",
+      imagen: "descarga (1).jpeg",
       marca: "Sony",
       precio: 89999,
       comentarios: [
@@ -39,7 +39,7 @@ const localData = {
       nombre: "Smartphone Samsung Galaxy S24 Ultra",
       descripcion:
         "Smartphone flagship con pantalla Dynamic AMOLED 2X de 6.8\", cámara de 200MP, S Pen incluido y procesador Snapdragon 8 Gen 3.",
-      imagen: "samsung_s24_ultra.jpg",
+      imagen: "samsung.jpeg",
       marca: "Samsung",
       precio: 449999,
       comentarios: [
@@ -61,7 +61,7 @@ const localData = {
       nombre: "Notebook Apple MacBook Air M3",
       descripcion:
         "Laptop ultradelgada con chip M3, pantalla Liquid Retina de 13.6\", 16GB de RAM y hasta 18 horas de autonomía.",
-      imagen: "macbook_air_m3.jpg",
+      imagen: "mac m3.jpeg",
       marca: "Apple",
       precio: 699999,
       comentarios: [
@@ -88,7 +88,7 @@ const localData = {
       nombre: "Smart TV LG OLED 55\" C3",
       descripcion:
         "Televisor OLED con resolución 4K, procesador α9 Gen6, Dolby Vision IQ, Dolby Atmos y sistema operativo webOS 23.",
-      imagen: "lg_oled_55.jpg",
+      imagen: "smart tv lg.jpeg",
       marca: "LG",
       precio: 529999,
       comentarios: [
@@ -110,7 +110,7 @@ const localData = {
       nombre: "Tablet iPad Pro 11\" M4",
       descripcion:
         "Tablet profesional con chip M4, pantalla Ultra Retina XDR OLED, compatible con Apple Pencil Pro y Magic Keyboard.",
-      imagen: "ipad_pro_m4.jpg",
+      imagen: "ipad m4.jpeg",
       marca: "Apple",
       precio: 389999,
       comentarios: [
@@ -131,7 +131,7 @@ const localData = {
       nombre: "Consola PlayStation 5 Slim",
       descripcion:
         "Consola de videojuegos de nueva generación con SSD ultrarrápido, soporte para 4K a 120fps, ray tracing y DualSense incluido.",
-      imagen: "ps5_slim.jpg",
+      imagen: "play 5.jpeg",
       marca: "Sony",
       precio: 299999,
       comentarios: [
@@ -158,7 +158,7 @@ const localData = {
       nombre: "Monitor Gamer ASUS ROG Swift 27\" 240Hz",
       descripcion:
         "Monitor gaming IPS QHD con tasa de refresco de 240Hz, tiempo de respuesta de 1ms, G-Sync Compatible y soporte HDR400.",
-      imagen: "monitor_asus_rog.jpg",
+      imagen: "monitor gamer.jpeg",
       marca: "ASUS",
       precio: 219999,
       comentarios: [
@@ -179,7 +179,7 @@ const localData = {
       nombre: "Mouse Logitech MX Master 3S",
       descripcion:
         "Mouse inalámbrico premium con scroll MagSpeed electromagnético, sensor de 8000 DPI, botones silenciosos y hasta 70 días de batería.",
-      imagen: "mouse_mx_master3s.jpg",
+      imagen: "mouse logitech.jpeg",
       marca: "Logitech",
       precio: 49999,
       comentarios: [
@@ -205,7 +205,7 @@ const localData = {
       nombre: "Cámara Mirrorless Sony Alpha ZV-E10 II",
       descripcion:
         "Cámara sin espejo APS-C ideal para creadores de contenido, con video 4K 60fps, autoenfoque por IA y pantalla abatible.",
-      imagen: "camara_sony_zve10.jpg",
+      imagen: "camara sony.jpeg",
       marca: "Sony",
       precio: 179999,
       comentarios: [
@@ -227,7 +227,7 @@ const localData = {
       nombre: "Teclado Mecánico Keychron K8 Pro",
       descripcion:
         "Teclado mecánico inalámbrico TKL con switches Gateron Pro, retroiluminación RGB, compatible con Mac y Windows.",
-      imagen: "teclado_keychron_k8.jpg",
+      imagen: "teclado.jpeg",
       marca: "Keychron",
       precio: 64999,
       comentarios: [
