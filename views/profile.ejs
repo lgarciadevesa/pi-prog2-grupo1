@@ -16,7 +16,11 @@
 </head>
 <body>
 	<!-- Header -->
-	<%- include('partials/header') %>
+	<% if (logueado === false) { %>
+		<%- include('partials/header') %>
+	<% } else { %>
+		<%- include('partials/headerLogedin') %>
+	<% } %>
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->

@@ -10,4 +10,6 @@ router.get('/edit/:id', productController.edit);
 
 router.get('/detalle/:id', productController.id);
 
+router.get('/search', productController.search);
+
 module.exports = router;

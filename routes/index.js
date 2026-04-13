@@ -5,11 +5,9 @@ const localData = require('../localData/data');
 
 router.get('/', function(req, res, next) {
     console.log(localData.products);
-  res.render('index', { products: localData.products });
+  res.render('index', { products: localData.products, logueado: false });
 });
 
-router.get('/search', function(req, res, next) {
-  res.render('search-results');
-});
+
 
 module.exports = router;

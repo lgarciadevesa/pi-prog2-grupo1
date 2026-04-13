@@ -3,16 +3,18 @@ const { profile } = require('./indexController');
 
 const userController = {
 
+  login: function(req, res) {
+    res.render('login', {logueado: false} );
+  },
+ 
   profile: function(req, res) {
-    res.render('profile');
+    res.render('profile', {logueado: true, usuario: localData.usuario});
   },
 
    register: function(req, res) {
-    res.render('register');
+    res.render('register', {logueado: false});
   },
-   login: function(req, res) {
-    res.render('login');
-  },
+  
  
 
  

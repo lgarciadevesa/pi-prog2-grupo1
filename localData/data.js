@@ -1,6 +1,6 @@
 const localData = {
   usuario: {
-    usuario: "usuario1",
+    usuario: "Miguel",
     email: "usuario1@gmail.com",
     contrasena: "12345678",
     fotoPerfil: "profile-default.png",
