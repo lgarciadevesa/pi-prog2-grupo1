@@ -8,7 +8,7 @@ const userController = {
   },
  
   profile: function(req, res) {
-    res.render('profile', {logueado: true, usuario: localData.usuario});
+    res.render('profile', {logueado: true, usuario: localData.usuario, products: localData.products});
   },
 
    register: function(req, res) {

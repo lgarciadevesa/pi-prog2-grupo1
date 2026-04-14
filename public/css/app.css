@@ -24,6 +24,7 @@ body {
   min-height: 100vh;
   margin: 0;
   font-size: 10px;
+  ;
 }
 
 body {
@@ -277,12 +278,15 @@ hr {
     background-color: #378ed9;
     color: white;
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
 }
 
 .footerContainer {
     width: 90%;
     max-width: 900px;
-    margin-left: 300px;
+    
+   margin-bottom: 10px;
     display: flex;
     justify-content: space-around;
     text-align: center;
@@ -475,7 +479,13 @@ textarea.form-input {
     margin-left: 500px;
     padding: 20px;
     background-color: #ffffff;
+    justify-content: center;
 
+}
+.formSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .formTitle {

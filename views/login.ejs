@@ -18,48 +18,50 @@
 
 <body>
 	<!-- Header -->
-	<% if (logueado === false) { %>
+	<% if (logueado===false) { %>
 		<%- include('partials/header') %>
-	<% } else { %>
-		<%- include('partials/headerLogedin') %>
-	<% } %>
-	<!-- /Header -->
+			<% } else { %>
+				<%- include('partials/headerLogedin') %>
+					<% } %>
+						<!-- /Header -->
 
-	<!-- Novedades -->
-<section class="formContainer">
+						<!-- Novedades -->
+						<section class="formSection">
+							<article class="formContainer">
 
-    <header>
-        <h1 class="formTitle">Login</h1>
-    </header>
+								<header>
+									<h1 class="formTitle">Login</h1>
+								</header>
 
-    <form class="formCustom" action="" method="GET">
+								<form class="formCustom" action="" method="GET">
 
-        <article class="formGroup">
-            <label class="formLabel" for="email">Email</label>
-            <input class="formInput" type="email" name="email" id="email" required>
-        </article>
+									<article class="formGroup">
+										<label class="formLabel" for="email">Email</label>
+										<input class="formInput" type="email" name="email" id="email" required>
+									</article>
 
-        <article class="formGroup">
-            <label class="formLabel" for="password">Contraseña</label>
-            <input class="formInput" type="password" name="password" id="password" required>
-        </article>
+									<article class="formGroup">
+										<label class="formLabel" for="password">Contraseña</label>
+										<input class="formInput" type="password" name="password" id="password" required>
+									</article>
 
-        <article class="formGroup">
-            <input class="formCheckbox" type="checkbox" name="rememberMe" id="rememberMe">
-            <label for="rememberMe">Recordarme</label>
-        </article>
+									<article class="formGroup">
+										<input class="formCheckbox" type="checkbox" name="rememberMe" id="rememberMe">
+										<label for="rememberMe">Recordarme</label>
+									</article>
 
-        <footer>
-            <button class="formButton" type="submit">Ingresar</button>
-        </footer>
+									<footer>
+										<button class="formButton" type="submit">Ingresar</button>
+									</footer>
 
-    </form>
+								</form>
+							</article>
 
-</section>
+						</section>
 
-	<!-- footer -->
-	<%- include('partials/footer') %>
-	<!-- /footer -->
+						<!-- footer -->
+						<%- include('partials/footer') %>
+							<!-- /footer -->
 </body>
 
 </html>

@@ -18,49 +18,53 @@
 
 <body>
 	<!-- Header -->
-	<% if (logueado === false) { %>
+	<% if (logueado===false) { %>
 		<%- include('partials/header') %>
-	<% } else { %>
-		<%- include('partials/headerLogedin') %>
-	<% } %>
-	<!-- /Header -->
+			<% } else { %>
+				<%- include('partials/headerLogedin') %>
+					<% } %>
+						<!-- /Header -->
 
-	<!-- Novedades -->
-<section class="formContainer">
+						<!-- Novedades -->
+						<section class="formSection">
+							<article class="formContainer">
 
-    <header>
-        <h1 class="formTitle">Agregar producto</h1>
-    </header>
+								<header>
+									<h1 class="formTitle">Agregar producto</h1>
+								</header>
 
-    <form class="formCustom" action="/products/add" method="GET">
+								<form class="formCustom" action="/products/add" method="GET">
 
-        <article class="formGroup">
-            <label class="formLabel" for="image">Imagen</label>
-            <input class="formInput" type="text" name="image" id="image" required>
-        </article>
+									<article class="formGroup">
+										<label class="formLabel" for="image">Imagen</label>
+										<input class="formInput" type="text" name="image" id="image" required>
+									</article>
 
-        <article class="formGroup">
-            <label class="formLabel" for="productName">Nombre del producto</label>
-            <input class="formInput" type="text" name="productName" id="productName" required>
-        </article>
+									<article class="formGroup">
+										<label class="formLabel" for="productName">Nombre del producto</label>
+										<input class="formInput" type="text" name="productName" id="productName"
+											required>
+									</article>
 
-        <article class="formGroup">
-            <label class="formLabel" for="description">Descripción</label>
-            <textarea class="formTextarea" name="description" id="description" required></textarea>
-        </article>
+									<article class="formGroup">
+										<label class="formLabel" for="description">Descripción</label>
+										<textarea class="formTextarea" name="description" id="description"
+											required></textarea>
+									</article>
 
-        <footer>
-            <button class="formButton" type="submit">Agregar</button>
-        </footer>
+									<footer>
+										<button class="formButton" type="submit">Agregar</button>
+									</footer>
 
-    </form>
+								</form>
+							</article>
 
-</section>
+						</section>
 
 
-	<!-- footer -->
-	<%- include('partials/footer') %>
-	<!-- /footer -->
+						<!-- footer -->
+						<%- include('partials/footer') %>
+							<!-- /footer -->
 </body>
 
 </html>

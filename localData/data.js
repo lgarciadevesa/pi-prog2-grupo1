@@ -3,7 +3,7 @@ const localData = {
     usuario: "Miguel",
     email: "usuario1@gmail.com",
     contrasena: "12345678",
-    fotoPerfil: "profile-default.png",
+    fotoPerfil: "/images/users/profile-default.png",
   },
  
   products: [

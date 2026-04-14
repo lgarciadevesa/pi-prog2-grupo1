@@ -18,48 +18,51 @@
 
 <body>
 	<!-- Header -->
-	<% if (logueado === false) { %>
+	<% if (logueado===false) { %>
 		<%- include('partials/header') %>
-	<% } else { %>
-		<%- include('partials/headerLogedin') %>
-	<% } %>
-	<!-- /Header -->
+			<% } else { %>
+				<%- include('partials/headerLogedin') %>
+					<% } %>
+						<!-- /Header -->
 
-	<!-- Novedades -->
-<section class="formContainer">
+						<!-- Novedades -->
+						<section class="formSection">
 
-    <header>
-        <h1 class="formTitle">Registración</h1>
-    </header>
+							<article class="formContainer">
 
-    <form class="formCustom" action="/users/register" method="GET">
+								<header>
+									<h1 class="formTitle">Registración</h1>
+								</header>
 
-        <article class="formGroup">
-            <label class="formLabel" for="email">Email</label>
-            <input class="formInput" type="email" name="email" id="email" required>
-        </article>
+								<form class="formCustom" action="/users/register" method="GET">
 
-        <article class="formGroup">
-            <label class="formLabel" for="userName">Usuario</label>
-            <input class="formInput" type="text" name="userName" id="userName" required>
-        </article>
+									<article class="formGroup">
+										<label class="formLabel" for="email">Email</label>
+										<input class="formInput" type="email" name="email" id="email" required>
+									</article>
 
-        <article class="formGroup">
-            <label class="formLabel" for="password">Contraseña</label>
-            <input class="formInput" type="password" name="password" id="password" required>
-        </article>
+									<article class="formGroup">
+										<label class="formLabel" for="userName">Usuario</label>
+										<input class="formInput" type="text" name="userName" id="userName" required>
+									</article>
 
-        <footer>
-            <button class="formButton" type="submit">Registrarse</button>
-        </footer>
+									<article class="formGroup">
+										<label class="formLabel" for="password">Contraseña</label>
+										<input class="formInput" type="password" name="password" id="password" required>
+									</article>
 
-    </form>
+									<footer>
+										<button class="formButton" type="submit">Registrarse</button>
+									</footer>
 
-</section>
+								</form>
+							</article>
 
-	<!-- footer -->
-	<%- include('partials/footer') %>
-	<!-- /footer -->
+						</section>
+
+						<!-- footer -->
+						<%- include('partials/footer') %>
+							<!-- /footer -->
 </body>
 
 </html>
