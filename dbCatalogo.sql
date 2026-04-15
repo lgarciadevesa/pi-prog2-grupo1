@@ -1,3 +1,6 @@
+create schema dbCatalogo; 
+use dbCatalogo;
+
 CREATE TABLE usuarios (
 	id INT unsigned PRIMARY KEY auto_increment,
 	email VARCHAR(1000) NOT NULL,
@@ -35,11 +38,9 @@ CREATE TABLE comentarios (
   idUsuario INT unsigned NOT NULL,
   texto TEXT NOT NULL,
   createdAt timestamp DEFAULT current_timestamp,
-  updatedAt timestamp DEFAULT "0000-00-00 00:00:00" ON UPDATE current_timestamp,
-  deletedAt timestamp DEFAULT "0000-00-00 00:00:00" ON UPDATE current_timestamp,
+  updatedAt timestamp DEFAULT current_timestamp ON UPDATE current_timestamp,
+  deletedAt timestamp DEFAULT  current_timestamp ON UPDATE current_timestamp,
   FOREIGN KEY (idProducto) REFERENCES products(id),
   FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
 );
-
-
 
