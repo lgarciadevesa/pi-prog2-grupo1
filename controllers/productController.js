@@ -6,7 +6,7 @@ const productsController = {
   },
 
   search: function(req, res) {
-    res.render('search-results', {logueado: true});
+    res.render('search-results', {products: localData.products, usuario: localData.usuario, logueado: true});
   },
 
   add : function(req, res) {
