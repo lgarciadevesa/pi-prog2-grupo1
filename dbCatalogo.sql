@@ -42,12 +42,12 @@ CREATE TABLE comentarios (
   texto TEXT NOT NULL,
   createdAt timestamp DEFAULT current_timestamp,
   updatedAt timestamp DEFAULT current_timestamp ON UPDATE current_timestamp,
-  deletedAt timestamp DEFAULT  current_timestamp ON UPDATE current_timestamp,
+  deletedAt timestamp DEFAULT  NULL ON UPDATE current_timestamp,
   FOREIGN KEY (idProducto) REFERENCES products(id),
   FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
 );
 
-/* INSERT */
+/* INSERT USUARIO */
 
 INSERT INTO usuarios (id, usuario, email, contrasenna, fotoPerfil)
 VALUES
@@ -57,6 +57,7 @@ VALUES
 (default, 'luli.dev', 'luli.dev@gmail.com', '12345678', 'profile-default.png'),
 (default, 'rodrigo_foto', 'rodrigo_foto@gmail.com', '12345678', 'profile-default.png');
 
+/* INSERT PRODUCTOS */
 INSERT INTO products (id, imagenProducto, nombreProducto, marcaProducto, descripcionProducto, idUsuario) VALUES
 (DEFAULT, 'descarga (1).jpeg', 'Auriculares Bluetooth Sony WH-1000XM5', 'Sony', 'Auriculares inalámbricos premium con cancelación de ruido líder en la industria, hasta 30 horas de batería y conectividad multipunto.', 1),
 (DEFAULT, 'samsung.jpeg', 'Smartphone Samsung Galaxy S24 Ultra', 'Samsung', 'Smartphone flagship con pantalla Dynamic AMOLED 2X de 6.8", cámara de 200MP, S Pen incluido y procesador Snapdragon 8 Gen 3.', 1),
@@ -69,3 +70,49 @@ INSERT INTO products (id, imagenProducto, nombreProducto, marcaProducto, descrip
 (DEFAULT, 'camara sony.jpeg', 'Cámara Mirrorless Sony Alpha ZV-E10 II', 'Sony', 'Cámara sin espejo APS-C ideal para creadores de contenido, con video 4K 60fps, autoenfoque por IA y pantalla abatible.', 1),
 (DEFAULT, 'teclado.jpeg', 'Teclado Mecánico Keychron K8 Pro', 'Keychron', 'Teclado mecánico inalámbrico TKL con switches Gateron Pro, retroiluminación RGB, compatible con Mac y Windows.', 1);
 
+/* INSERT  COMENTARIOS */
+INSERT INTO comentarios (id, idProducto, idUsuario, texto) VALUES
+-- Producto 1: Auriculares Bluetooth Sony WH-1000XM5
+(DEFAULT, 1, 1, 'Increíbles, el sonido es espectacular y la cancelación de ruido es lo mejor que probé.'),
+(DEFAULT, 1, 2, 'Muy cómodos para viajes largos. Los recomiendo 100%.'),
+(DEFAULT, 1, 3, 'La batería dura muchísimo, ideal para trabajar desde casa.'),
+
+-- Producto 2: Smartphone Samsung Galaxy S24 Ultra
+(DEFAULT, 2, 4, 'La cámara es una locura, las fotos nocturnas son increíbles.'),
+(DEFAULT, 2, 5, 'El S Pen hace la diferencia para tomar notas rápidas.'),
+
+-- Producto 3: Notebook Apple MacBook Air M3
+(DEFAULT, 3, 1, 'Perfecta para diseño gráfico, vuela con Figma y Photoshop abiertos.'),
+(DEFAULT, 3, 3, 'La batería aguanta todo el día sin problema. Una joya.'),
+(DEFAULT, 3, 2, 'Excelente para desarrollo, el compilador es rapidísimo.'),
+
+-- Producto 4: Smart TV LG OLED 55" C3
+(DEFAULT, 4, 5, 'Los negros son perfectos, nada que ver con un LED. Vale cada peso.'),
+(DEFAULT, 4, 4, 'La imagen es impresionante para ver fotos y contenido HDR.'),
+
+-- Producto 5: Tablet iPad Pro 11" M4
+(DEFAULT, 5, 1, 'Con el Apple Pencil es como dibujar en papel, increíble.'),
+(DEFAULT, 5, 2, 'Uso el teclado Magic y reemplaza completamente a una laptop.'),
+
+-- Producto 6: Consola PlayStation 5 Slim
+(DEFAULT, 6, 3, 'Los tiempos de carga son prácticamente cero, es una maravilla.'),
+(DEFAULT, 6, 5, 'El DualSense con la vibración háptica cambia completamente la experiencia.'),
+(DEFAULT, 6, 4, 'Spider-Man 2 se ve espectacular. Muy feliz con la compra.'),
+
+-- Producto 7: Monitor Gamer ASUS ROG Swift 27" 240Hz
+(DEFAULT, 7, 2, 'Perfecto para programar, tiene mucho espacio en pantalla.'),
+(DEFAULT, 7, 1, 'A 240Hz los juegos competitivos se sienten muy fluidos.'),
+
+-- Producto 8: Mouse Logitech MX Master 3S
+(DEFAULT, 8, 3, 'El mejor mouse que tuve, el scroll electromagnético es adictivo.'),
+(DEFAULT, 8, 1, 'Muy preciso para trabajos de diseño, la forma es muy ergonómica.'),
+(DEFAULT, 8, 2, 'Lo uso 8 horas por día y no cansa la muñeca para nada.'),
+
+-- Producto 9: Cámara Mirrorless Sony Alpha ZV-E10 II
+(DEFAULT, 9, 4, 'El autoenfoque en video es impresionante, nunca pierde la cara.'),
+(DEFAULT, 9, 5, 'Excelente para empezar en fotografía profesional.'),
+
+-- Producto 10: Teclado Mecánico Keychron K8 Pro
+(DEFAULT, 10, 2, 'Escribir en este teclado es un placer, los switches son suaves.'),
+(DEFAULT, 10, 3, 'La conexión bluetooth es estable y cambia entre dispositivos genial.'),
+(DEFAULT, 10, 1, 'El RGB se ve muy bonito y la build quality es sólida.');
