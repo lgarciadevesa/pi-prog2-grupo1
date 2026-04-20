@@ -1,8 +1,10 @@
+drop schema if exists dbCatalogo;
 create schema dbCatalogo; 
 use dbCatalogo;
 
 CREATE TABLE usuarios (
 	id INT unsigned PRIMARY KEY auto_increment,
+    usuario VARCHAR(1000) NOT NULL,
 	email VARCHAR(1000) NOT NULL,
     contrasenna VARCHAR(1000) NOT NULL,
     fotoPerfil VARCHAR(1000),
@@ -45,3 +47,12 @@ CREATE TABLE comentarios (
   FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
 );
 
+/* INSERT */
+
+INSERT INTO usuarios (id, usuario, email, contrasenna, fotoPerfil)
+VALUES
+(default, 'Miguel', 'usuario1@gmail.com', '12345678', 'profile-default.png'),
+(default, 'maria_gamer', 'maria_gamer@gmail.com', '12345678', 'profile-default.png'),
+(default, 'pepe_tech', 'pepe_tech@gmail.com', '12345678', 'profile-default.png'),
+(default, 'luli.dev', 'luli.dev@gmail.com', '12345678', 'profile-default.png'),
+(default, 'rodrigo_foto', 'rodrigo_foto@gmail.com', '12345678', 'profile-default.png');
