@@ -16,6 +16,7 @@ CREATE TABLE products (
     imagenProducto VARCHAR(1000),
 	nombreProducto VARCHAR(1000) NOT NULL,
 	descripcionProducto TEXT NOT NULL,
+    marcaProducto VARCHAR(1000) NOT NULL,
     createdAt timestamp DEFAULT current_timestamp,
     updatedAt timestamp DEFAULT current_timestamp ON UPDATE current_timestamp,
     deletedAt timestamp NULL ON UPDATE current_timestamp,
