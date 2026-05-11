@@ -27,7 +27,7 @@ FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
 );
 
 
-CREATE TABLE detalle_compra (
+CREATE TABLE detalleCompra (
 	id INT unsigned PRIMARY KEY auto_increment,
     idUsuario INT unsigned NOT NULL,
 FOREIGN KEY (idUsuario) REFERENCES usuarios(id),
