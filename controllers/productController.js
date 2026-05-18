@@ -16,24 +16,30 @@ const productsController = {
    edit : function(req, res) {
     return res.render('product-add', { products: localData.products, logueado: true, usuario: localData.usuario });
   },
-  
-  id: function(req, res) {
+
+  id : function(req, res) {
     let idBuscado = Number(req.params.id);
     let productoPorId = null;
 
-    for (let i = 0; i < localData.products.length; i++) {
-      if (localData.products[i].id === idBuscado) {
-        productoPorId = localData.products[i];
-      }
-    }
-
-    return res.render("product", {
-      data: productoPorId,
-      titulo: "Detalles del producto " + idBuscado,
-      logueado: true,
-      usuario: localData.usuario
-
-    });
+    db.Producto.findByPk(idBuscado, {
+        include: [
+            { association: 'comentarios' }  // 👈 trae los comentarios relacionados
+        ]
+    })  
+      .then(function(producto) {
+        if (producto) {
+          productoPorId = producto;
+        }
+        return res.render("product", {
+          data: productoPorId,
+          titulo: "Detalles del producto " + idBuscado,
+          logueado: true,
+          usuario: localData.usuario
+        });
+      })
+      .catch(function(error) {
+        res.send(error);
+      });
   }
 };
 

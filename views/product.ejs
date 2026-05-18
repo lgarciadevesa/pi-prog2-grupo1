@@ -28,7 +28,7 @@
 		<div class="container products-wrapper">
 			<div class="d-flex align-items-center">
 				<h2 class="products-title">
-					<%= data.nombre %>
+					<%= data.nombreProducto %>
 				</h2>
 				<p class="product-detail-description">
 					<a href="/products/edit/<%= data.id %> ">Editar</a>
@@ -37,9 +37,9 @@
 			<div class="product-detail">
 				<div class="row">
 					<article class="col-12 col-lg-8 product-detail-info">
-						<img src="/images/products/<%= data.imagen %>" alt="cafetera moulinex">
+						<img src="/images/products/<%= data.imagenProducto %>" alt="cafetera moulinex">
 						<p>
-							<%= data.descripcion %>
+							<%= data.descripcionProducto %>
 						</p>
 					</article>
 					<div class="col-12 col-lg-4">
