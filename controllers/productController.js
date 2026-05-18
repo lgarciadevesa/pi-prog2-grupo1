@@ -1,5 +1,5 @@
 const localData = require('../localData/data');
-
+let db = require("../database/models");
 const productsController = {
   listar: function(req, res) {
     return res.render('product', { products: localData.products });
