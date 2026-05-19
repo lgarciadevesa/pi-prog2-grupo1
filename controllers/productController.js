@@ -23,7 +23,7 @@ const productsController = {
 
     db.Producto.findByPk(idBuscado, {
         include: [
-            { association: 'comentarios' }  // 👈 trae los comentarios relacionados
+            { association: 'comentarios' }  
         ]
     })  
       .then(function(producto) {
