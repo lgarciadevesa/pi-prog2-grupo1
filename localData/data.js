@@ -1,5 +1,6 @@
 const localData = {
   usuario: {
+    id: 1,
     usuario: "Miguel",
     email: "usuario1@gmail.com",
     contrasena: "12345678",
