@@ -4,9 +4,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var productsRouter = require('./routes/products');
+//Importar los modelos
+let db = require("./database/models");
+let op = db.Sequelize.Op;
+
+
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
+let productsRouter = require('./routes/products');
+
+let session = require('express-session');
 
 var app = express();
 
@@ -14,12 +21,29 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
+app.use(function(req, res, next) {
+    res.locals.usuarioLogueado = req.session.user;
+    return next();
+});
+
+
+
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//midelware//
+
+app.use(session({
+    secret: "Nuaesadtrdo 4md4en54sa3je ssecrreto",
+    resave: false,
+    saveUninitialized: true
+}));
 
 /* adsad */
 app.use('/', indexRouter);
