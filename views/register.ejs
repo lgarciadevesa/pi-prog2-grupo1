@@ -1,68 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
 
-	<title> Mercado Liebre Argentina</title>
-	<!-- Font Awesome Stylesheet -->
+	<title>Mercado Liebre Argentina</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
 	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
 	<link rel="stylesheet" href="/css/app.css">
 </head>
 
 <body>
-	<!-- Header -->
-	<% if (logueado===false) { %>
-		<%- include('partials/header') %>
-			<% } else { %>
-				<%- include('partials/headerLogedin') %>
-					<% } %>
-						<!-- /Header -->
 
-						<!-- Novedades -->
-						<section class="formSection">
+	<%- include('partials/header') %>
 
-							<article class="formContainer">
+	<section class="formSection">
+		<article class="formContainer">
 
-								<header>
-									<h1 class="formTitle">Registración</h1>
-								</header>
+			<header>
+				<h1 class="formTitle">Registración</h1>
+			</header>
 
-								<form class="formCustom" action="/users/login" method="POST">
+			<form class="formCustom" action="/users/newuser" method="POST">
 
-									<article class="formGroup">
-										<label class="formLabel" for="email">Email</label>
-										<input class="formInput" type="email" name="email" id="email" required>
-									</article>
+	<article class="formGroup">
+		<label class="formLabel" for="email">Email</label>
+		<input class="formInput" type="email" name="email" id="email" required>
+	</article>
 
-									<article class="formGroup">
-										<label class="formLabel" for="userName">Usuario</label>
-										<input class="formInput" type="text" name="userName" id="userName" required>
-									</article>
+	<article class="formGroup">
+		<label class="formLabel" for="usuario">Usuario</label>
+		<input class="formInput" type="text" name="usuario" id="usuario" required>
+	</article>
 
-									<article class="formGroup">
-										<label class="formLabel" for="password">Contraseña</label>
-										<input class="formInput" type="password" name="password" id="password" required>
-									</article>
+	<article class="formGroup">
+		<label class="formLabel" for="password">Contraseña</label>
+		<input class="formInput" type="password" name="password" id="password" required>
+	</article>
 
-									<footer>
-										<button class="formButton" type="submit" >Registrarse</button>
-									</footer>
+	<footer>
+		<button class="formButton" type="submit">Registrarse</button>
+	</footer>
 
-								</form>
-							</article>
+</form>
+		</article>
+	</section>
 
-						</section>
+	<%- include('partials/footer') %>
 
-						<!-- footer -->
-						<%- include('partials/footer') %>
-							<!-- /footer -->
 </body>
-
 </html>

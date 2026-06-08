@@ -1,6 +1,5 @@
 let db = require('../database/models');
 let bcrypt = require('bcryptjs');
-const op = db.Sequelize.Op;
 
 let usersController = {
     register: function(req, res){
@@ -12,7 +11,7 @@ let usersController = {
     },
 
     processLogin: function(req, res){
-        db.User.findOne({
+        db.Usuario.findOne({
             where: {
                 email: req.body.email
             }
@@ -22,13 +21,11 @@ let usersController = {
                 return res.send('No existe un usuario con ese email');
             }
 
-            let passwordOk = bcrypt.compareSync(req.body.password, user.password);
+            let passwordOk = bcrypt.compareSync(req.body.password, user.contrasenna);
 
             if(passwordOk == false){
                 return res.send('La contraseña es incorrecta');
             }
-
-            req.session.usuarioLogueado = user;
 
             return res.redirect('/');
         })
@@ -38,28 +35,25 @@ let usersController = {
     },
 
     newUser: function(req, res){
-        let passEncriptada = bcrypt.hashSync(req.body.password, 10);
-
-        db.User.create({
-            name: req.body.name,
-            email: req.body.email,
-            password: passEncriptada
-        })
-        .then(function(){
-            return res.redirect('/');
-        })
-        .catch(function(error){
-            if (error.name == "SequelizeUniqueConstraintError") {
-                return res.redirect('/users/register');
-            }
-            return res.send(error);
-        });
-    },
+    let passEncriptada = bcrypt.hashSync(req.body.password, 10);
+console.log(req.body);
+    db.Usuario.create({
+        usuario: req.body.usuario,
+        email: req.body.email,
+        contrasenna: passEncriptada
+    })
+    .then(function(){
+        return res.redirect('/');
+    })
+    .catch(function(error){
+        return res.send(error);
+    });
+},
 
     edit: function(req, res){
         let id = req.params.id;
 
-        db.User.findByPk(id)
+        db.Usuario.findByPk(id)
         .then(function(resultado){
             if(resultado == null){
                 return res.send('No existe un usuario con ese id');
@@ -75,9 +69,9 @@ let usersController = {
     update: function(req, res){
         let id = req.params.id;
 
-        db.User.update(
+        db.Usuario.update(
             {
-                name: req.body.name,
+                usuario: req.body.usuario,
                 email: req.body.email
             },
             {
@@ -92,11 +86,6 @@ let usersController = {
         .catch(function(error){
             return res.send(error);
         });
-    },
-
-    logout: function(req, res){
-        req.session.destroy();
-        return res.redirect('/');
     }
 };
 
