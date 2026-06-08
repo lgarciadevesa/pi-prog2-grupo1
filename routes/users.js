@@ -1,19 +1,16 @@
-var express = require('express');
-var router = express.Router();
-const userController = require('../controllers/userController');
-const { log } = require('debug/src/browser');
+const express = require('express');
+const router = express.Router();
+const usersController = require('../controllers/usersController');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/register', usersController.register);
+router.get('/login', usersController.login);
 
-});
+router.post('/newuser', usersController.newUser);
+router.post('/processLogin', usersController.processLogin);
 
-router.get('/login', userController.login);
-;
+router.get('/edit/:id', usersController.edit);
+router.post('/update/:id', usersController.update);
 
-router.get('/register', userController.register);
-
-router.get('/profile/:id', userController.profile);
+router.get('/logout', usersController.logout);
 
 module.exports = router;
