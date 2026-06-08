@@ -1,67 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
 
-	<title> Mercado Liebre Argentina</title>
-	<!-- Font Awesome Stylesheet -->
+	<title>Mercado Liebre Argentina</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
 	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
 	<link rel="stylesheet" href="/css/app.css">
 </head>
 
 <body>
-	<!-- Header -->
-	<% if (logueado===false) { %>
-		<%- include('partials/header') %>
-			<% } else { %>
-				<%- include('partials/headerLogedin') %>
-					<% } %>
-						<!-- /Header -->
 
-						<!-- Novedades -->
-						<section class="formSection">
-							<article class="formContainer">
+	<%- include('partials/header') %>
 
-								<header>
-									<h1 class="formTitle">Login</h1>
-								</header>
+	<section class="formSection">
+		<article class="formContainer">
 
-								<form class="formCustom" action="/" method="GET">
+			<header>
+				<h1 class="formTitle">Login</h1>
+			</header>
 
-									<article class="formGroup">
-										<label class="formLabel" for="email">Email</label>
-										<input class="formInput" type="email" name="email" id="email" required>
-									</article>
+			<form class="formCustom" action="/users/processLogin" method="POST">
 
-									<article class="formGroup">
-										<label class="formLabel" for="password">Contraseña</label>
-										<input class="formInput" type="password" name="password" id="password" required>
-									</article>
+				<article class="formGroup">
+					<label class="formLabel" for="email">Email</label>
+					<input class="formInput" type="email" name="email" id="email" required>
+				</article>
 
-									<article class="formGroup">
-										<input class="formCheckbox" type="checkbox" name="rememberMe" id="rememberMe">
-										<label for="rememberMe">Recordarme</label>
-									</article>
+				<article class="formGroup">
+					<label class="formLabel" for="password">Contraseña</label>
+					<input class="formInput" type="password" name="password" id="password" required>
+				</article>
 
-									<footer>
-										<button  class="formButton" type="submit" >Ingresar</button>
-									</footer>
+				<article class="formGroup">
+					<input class="formCheckbox" type="checkbox" name="rememberMe" id="rememberMe">
+					<label for="rememberMe">Recordarme</label>
+				</article>
 
-								</form>
-							</article>
+				<footer>
+					<button class="formButton" type="submit">Ingresar</button>
+				</footer>
 
-						</section>
+			</form>
+		</article>
+	</section>
 
-						<!-- footer -->
-						<%- include('partials/footer') %>
-							<!-- /footer -->
+	<%- include('partials/footer') %>
+
 </body>
-
 </html>
