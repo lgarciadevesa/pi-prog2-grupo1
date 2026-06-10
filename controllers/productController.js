@@ -1,13 +1,28 @@
 const localData = require('../localData/data');
 let db = require("../database/models");
+const op = db.Sequelize.Op;
 const productsController = {
   listar: function(req, res) {
     return res.render('product', { products: localData.products });
   },
 
-  search: function(req, res) {
-    res.render('search-results', {products: localData.products, usuario: localData.usuario, logueado: true});
-  },
+  search: function(req, res){
+    let busqueda = req.query.search;
+
+    db.Producto.findAll({
+        where: {
+            nombreProducto: {
+                [op.like]: "%" + busqueda + "%"
+            }
+        }
+    })
+    .then(function(resultados){
+        return res.render("search-results", { productos: resultados, busqueda: busqueda });
+    })
+    .catch(function(error){
+        return res.send(error);
+    });
+},
 
   add : function(req, res) {
     return res.render('product-add', { products: localData.products, logueado: true, usuario: localData.usuario });
