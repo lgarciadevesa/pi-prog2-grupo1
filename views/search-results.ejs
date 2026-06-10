@@ -34,7 +34,7 @@
     <% if (productos.length > 0) { %>
 
       <% for(let i = 0; i < productos.length; i++) { %>
-
+<section>
         <article class="productCard">
 
           <h2>
@@ -43,12 +43,14 @@
             </a>
           </h2>
 
+		<img src="/images/products/<%= productos[i].imagenProducto %>" alt="cafetera moulinex">
           <p>Descripción: <%= productos[i].descripcionProducto %></p>
           <p>Marca: <%= productos[i].marcaProducto %></p>
 
         </article>
 
       <% } %>
+	</section>
 
     <% } else { %>
 
