@@ -11,5 +11,6 @@ router.post('/processLogin', usersController.processLogin);
 
 router.get('/edit/:id', usersController.edit);
 router.post('/update/:id', usersController.update);
+router.post('/logout/', usersController.logout);
 
 module.exports = router;
