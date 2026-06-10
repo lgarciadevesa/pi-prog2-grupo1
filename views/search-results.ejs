@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="/css/app.css">
 </head>
 
-<body>
+<body class="searchResultsPage">
 	<!-- Header -->
 	<% if (usuarioLogueado === undefined) { %>
 		<%- include('partials/header') %>
@@ -27,36 +27,48 @@
 
 			
 
-							
+<section class="searchResultsContainer">
+		<header class="searchResultsHeader">
+			<h1 class="searchResultsTitle">Resultados de búsqueda</h1>
+			<p class="searchResultsText">Resultado para: <%= busqueda %></p>
+		</header>
 
-						    <p>Resultado para: <%= busqueda %></p>
+		<% if (productos.length > 0) { %>
 
-    <% if (productos.length > 0) { %>
+			<section class="productsList">
+				<% for(let i = 0; i < productos.length; i++) { %>
 
-      <% for(let i = 0; i < productos.length; i++) { %>
-<section>
-        <article class="productCard">
+					<article class="productCard">
+						<a href="/products/detalle/<%= productos[i].id %>">
+							<img
+								class="productImage"
+								src="/images/products/<%= productos[i].imagenProducto %>"
+								alt="<%= productos[i].nombreProducto %>">
+						</a>
 
-          <h2>
-            <a href="/products/detalle/<%= productos[i].id %>">
-              <%= productos[i].nombreProducto %>
-            </a>
-          </h2>
+						<h2 class="productName">
+							<a href="/products/detalle/<%= productos[i].id %>">
+								<%= productos[i].nombreProducto %>
+							</a>
+						</h2>
 
-		<img src="/images/products/<%= productos[i].imagenProducto %>" alt="cafetera moulinex">
-          <p>Descripción: <%= productos[i].descripcionProducto %></p>
-          <p>Marca: <%= productos[i].marcaProducto %></p>
+						<p class="productDescription">Descripción: <%= productos[i].descripcionProducto %></p>
+						<p class="productDescription">Marca: <%= productos[i].marcaProducto %></p>
 
-        </article>
+						<a class="productLink" href="/products/detalle/<%= productos[i].id %>">Ver detalle</a>
+					</article>
 
-      <% } %>
+				<% } %>
+			</section>
+
+		<% } else { %>
+
+			<p class="noproducts">No se encontraron productos.</p>
+
+		<% } %>
 	</section>
 
-    <% } else { %>
-
-      <p>No se encontraron productos.</p>
-
-    <% } %>
+	
 
 							<!-- footer -->
 							<%- include('partials/footer') %>
