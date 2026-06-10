@@ -29,39 +29,32 @@
 
 							
 
-							<section class="productsList">
-								<div class="container products-wrapper">
-									<div class="row">
-										<div class="col-12">
-											<h2 class="products-title">Estos son los resultados encontrados para tu búsqueda: <strong>Mouse</strong></h2>
-										</div>
+						    <p>Resultado para: <%= busqueda %></p>
 
-										<% for (let i=5; i < products.length; i++) { %>
-											<div class="col-12 col-sm-6 col-lg-3">
-												<section class="product-box">
-													<a href="/products/detalle/<%= products[i].id %>">
-														<figure class="product-box_image">
-															<img src="/images/products/<%= products[i].imagen %>"
-																alt="<%= products[i].nombre %>">
-														</figure>
-														<article class="product-box_data">
-															<h2>
-																<%= products[i].nombre %>
-															</h2>
-															<p>
-																<%= products[i].descripcion %>...
-															</p>
-															<p>Comentarios: <%= products[i].comentarios.length %>
-															</p>
-														</article>
-													</a>
-												</section>
-											</div>
-											<% } %>
-									</div>
-								</div>
+    <% if (productos.length > 0) { %>
 
-							</section>
+      <% for(let i = 0; i < productos.length; i++) { %>
+
+        <article class="productCard">
+
+          <h2>
+            <a href="/products/detalle/<%= productos[i].id %>">
+              <%= productos[i].nombreProducto %>
+            </a>
+          </h2>
+
+          <p>Descripción: <%= productos[i].descripcionProducto %></p>
+          <p>Marca: <%= productos[i].marcaProducto %></p>
+
+        </article>
+
+      <% } %>
+
+    <% } else { %>
+
+      <p>No se encontraron productos.</p>
+
+    <% } %>
 
 							<!-- footer -->
 							<%- include('partials/footer') %>

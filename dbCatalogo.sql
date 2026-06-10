@@ -42,7 +42,7 @@ CREATE TABLE comentarios (
   texto TEXT NOT NULL,
   createdAt timestamp DEFAULT current_timestamp,
   updatedAt timestamp DEFAULT current_timestamp ON UPDATE current_timestamp,
-  deletedAt timestamp DEFAULT  NULL ON UPDATE current_timestamp,
+  deletedAt timestamp NULL ON UPDATE current_timestamp,
   FOREIGN KEY (idProducto) REFERENCES products(id),
   FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
 );
