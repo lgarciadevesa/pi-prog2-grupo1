@@ -14,7 +14,13 @@
 
 <body>
 
-	<%- include('partials/header') %>
+	<!-- Header -->
+	<% if (usuarioLogueado === undefined) { %>
+		<%- include('partials/header') %>
+	<% } else { %>
+		<%- include('partials/headerLogedin') %>
+	<% } %>
+	<!-- /Header -->
 
 	<section class="formSection">
 		<article class="formContainer">
