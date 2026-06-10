@@ -30,9 +30,11 @@
 				<h2 class="products-title">
 					<%= data.nombreProducto %>
 				</h2>
-				<p class="product-detail-description">
-					<a href="/products/edit/<%= data.id %> ">Editar</a>
-				</p>
+				<% if (usuarioLogueado != undefined && usuarioLogueado.id == data.idUsuario) { %>
+					<p class="product-detail-description">
+						<a href="/products/edit/<%= data.id %> ">Editar</a>
+					</p>
+				<% } %>
 			</div>
 			<div class="product-detail">
 				<div class="row">
