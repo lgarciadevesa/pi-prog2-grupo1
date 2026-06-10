@@ -51,7 +51,7 @@ let usersController = {
       contrasenna: passEncriptada
     })
       .then(function () {
-        return res.redirect('/login');
+        return res.redirect('/users/login');
       })
       .catch(function (error) {
         return res.send(error);
