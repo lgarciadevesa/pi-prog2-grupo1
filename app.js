@@ -13,17 +13,24 @@ let usersRouter = require('./routes/users');
 let productsRouter = require('./routes/products');
 
 // let session = require('express-session');
-
+let session = require('express-session');
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// app.use(function(req, res, next) {
-//     res.locals.usuarioLogueado = req.session.user;
-//     return next();
-// });
+
+app.use(session({
+  secret: "Nuaesadtrdo 4md4en54sa3je ssecrreto",
+  resave: false,
+  saveUninitialized: true
+}));
+
+ app.use(function(req, res, next) {
+     res.locals.usuarioLogueado = req.session.user;
+     return next();
+ });
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -31,13 +38,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//midelware//
 
-// app.use(session({
-//     secret: "Nuaesadtrdo 4md4en54sa3je ssecrreto",
-//     resave: false,
-//     saveUninitialized: true
-// }));
+
+
 
 /* adsad */
 app.use('/', indexRouter);
