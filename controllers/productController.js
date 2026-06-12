@@ -110,6 +110,20 @@ const productsController = {
       .catch(function (error) {
         res.send(error);
       });
+  },
+  addComentario: function (req, res) {
+    db.Comentario.create({
+      texto: req.body.texto,
+      idProducto: req.params.id,
+      idUsuario: req.session.user.id
+    })
+      .then(function () {
+        res.redirect('/products/detalle/' + req.params.id);
+      })
+      .catch(function (error) {
+        console.log(error);
+        res.redirect('/products/detalle/' + req.params.id);
+      });
   }
 };
 
