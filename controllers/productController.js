@@ -25,8 +25,36 @@ const productsController = {
   },
 
   add: function (req, res) {
-    return res.render('product-add', { products: localData.products, logueado: true, usuario: localData.usuario });
+    return res.render('product-add', { });
   },
+
+   create: function (req, res) {
+
+        db.Producto.create({
+          imagenProducto: req.body.imagen,
+          nombreProducto: req.body.nombre,
+          descripcionProducto: req.body.descripcion,
+          marcaProducto: req.body.marca,
+          idUsuario: req.session.user.id
+        })
+            .then(function () {
+                res.redirect('/');
+            })
+            .catch(function (error) {
+                console.log(error);
+                res.render('product-add', { errors: error.errors });
+            });
+    },
+    edit: function (req, res) {
+        db.User.findByPk(req.params.id)
+            .then(function (user) {
+                res.render('edit', { user: user });
+            })
+            .catch(function (error) {
+                console.log(error);
+                res.redirect('/');
+            });
+    },
 
   edit: function (req, res) {
     db.Producto.findByPk(req.params.id)

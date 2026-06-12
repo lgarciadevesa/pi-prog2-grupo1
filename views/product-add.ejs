@@ -33,22 +33,28 @@
 									<h1 class="formTitle">Agregar producto</h1>
 								</header>
 
-								<form class="formCustom" action="/products/add" method="GET">
+								<form class="formCustom" action="/products/create" method="POST">
 
 									<article class="formGroup">
-										<label class="formLabel" for="image">Imagen</label>
-										<input class="formInput" type="text" name="image" id="image" required>
+										<label class="formLabel" for="imagen">Imagen</label>
+										<input class="formInput" type="text" name="imagen" id="imagen" required>
 									</article>
 
 									<article class="formGroup">
 										<label class="formLabel" for="productName">Nombre del producto</label>
-										<input class="formInput" type="text" name="productName" id="productName"
+										<input class="formInput" type="text" name="nombre" id="productName"
 											required>
 									</article>
 
 									<article class="formGroup">
 										<label class="formLabel" for="description">Descripción</label>
-										<textarea class="formTextarea" name="description" id="description"
+										<textarea class="formTextarea" name="descripcion" id="description"
+											required></textarea>
+									</article>
+
+									<article class="formGroup">
+										<label class="formLabel" for="marca">Marca</label>
+										<textarea class="formTextarea" name="marca" id="marca"
 											required></textarea>
 									</article>
 

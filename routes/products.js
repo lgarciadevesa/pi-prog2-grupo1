@@ -14,4 +14,6 @@ router.get('/search', productController.search);
 
 router.post('/update/:id', productController.update);
 
+router.post('/create', productController.create);
+
 module.exports = router;
