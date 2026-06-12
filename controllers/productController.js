@@ -3,7 +3,7 @@ let db = require("../database/models");
 const op = db.Sequelize.Op;
 const productsController = {
   listar: function (req, res) {
-    return res.render('product', { products: localData.products });
+    return res.render('product', { });
   },
 
   search: function (req, res) {
