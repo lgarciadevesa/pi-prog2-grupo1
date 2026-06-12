@@ -12,4 +12,6 @@ router.get('/detalle/:id', productController.id);
 
 router.get('/search', productController.search);
 
+router.post('/update/:id', productController.update);
+
 module.exports = router;

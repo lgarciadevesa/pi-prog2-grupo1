@@ -51,7 +51,7 @@ CREATE TABLE comentarios (
 
 INSERT INTO usuarios (id, usuario, email, contrasenna, fotoPerfil)
 VALUES
-(default, 'Miguel', 'usuario1@gmail.com', '12345678', 'profile-default.png'),
+(default, 'Miguel', 'usuario1@gmail.com', '$2b$10$km02C0YxvDI9iqY4gE.WNueesma9Xfg6.XZQHWA3xJfTwBqdMHdrW', 'miguel.jpeg'),
 (default, 'maria_gamer', 'maria_gamer@gmail.com', '12345678', 'profile-default.png'),
 (default, 'pepe_tech', 'pepe_tech@gmail.com', '12345678', 'profile-default.png'),
 (default, 'luli.dev', 'luli.dev@gmail.com', '12345678', 'profile-default.png'),

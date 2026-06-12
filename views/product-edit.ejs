@@ -32,12 +32,46 @@
 				<h2 class="products-title">Editar datos del producto</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para modificar datos de un producto del catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
+			<section class="formSection">
+							<article class="formContainer">
+
+								<header>
+									<h1 class="formTitle">Agregar producto</h1>
+								</header>
+
+								<form class="formCustom" action="/products/update/<%= producto.id %>" method="post">
+
+									<article class="formGroup">
+										<label class="formLabel" for="image">Imagen</label>
+										<input class="formInput" type="text" name="imagen" id="image" value="<%= producto.imagenProducto %>" required>
+									</article>
+
+									<article class="formGroup">
+										<label class="formLabel" for="productName">Nombre del producto</label>
+										<input class="formInput" type="text" name="nombre" id="productName" value="<%= producto.nombreProducto %>"
+											required>
+									</article>
+
+									<article class="formGroup">
+										<label class="formLabel" for="description">Descripción</label>
+										<textarea class="formTextarea" name="descripcion" id="description" required> <%= producto.descripcionProducto %> </textarea>
+									</article>
+
+									<article class="formGroup">
+										<label class="formLabel" for="brand">Marca</label>
+										<input class="formInput" type="text" name="marca" id="brand" value="<%= producto.marcaProducto %>"
+											required>
+									</article>
+
+									<footer>
+										<button class="formButton" type="submit">Actualizar</button>
+									</footer>
+
+								</form>
+							</article>
+
+						</section>
+
 
 
 	<!-- footer -->

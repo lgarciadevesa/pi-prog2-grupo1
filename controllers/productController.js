@@ -2,46 +2,73 @@ const localData = require('../localData/data');
 let db = require("../database/models");
 const op = db.Sequelize.Op;
 const productsController = {
-  listar: function(req, res) {
+  listar: function (req, res) {
     return res.render('product', { products: localData.products });
   },
 
-  search: function(req, res){
+  search: function (req, res) {
     let busqueda = req.query.search;
 
     db.Producto.findAll({
-        where: {
-            nombreProducto: {
-                [op.like]: "%" + busqueda + "%"
-            }
+      where: {
+        nombreProducto: {
+          [op.like]: "%" + busqueda + "%"
         }
+      }
     })
-    .then(function(resultados){
+      .then(function (resultados) {
         return res.render("search-results", { productos: resultados, busqueda: busqueda });
-    })
-    .catch(function(error){
+      })
+      .catch(function (error) {
         return res.send(error);
-    });
-},
+      });
+  },
 
-  add : function(req, res) {
+  add: function (req, res) {
     return res.render('product-add', { products: localData.products, logueado: true, usuario: localData.usuario });
   },
 
-   edit : function(req, res) {
-    return res.render('product-add', { products: localData.products, logueado: true, usuario: localData.usuario });
+  edit: function (req, res) {
+    db.Producto.findByPk(req.params.id)
+      .then(function (producto) {
+        res.render('product-edit', { producto: producto });
+      })
+      .catch(function (error) {
+        console.log(error);
+        res.redirect('/');
+      });
   },
 
-  id : function(req, res) {
+  update: function (req, res) {
+    db.Producto.update({
+      nombreProducto: req.body.nombre,
+      descripcionProducto: req.body.descripcion,
+      imagenProducto: req.body.imagen,
+      marcaProducto: req.body.marca
+    }, {
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function () {
+        res.redirect('/');
+      })
+      .catch(function (error) {
+        console.log(error);
+        res.render('product-edit', { product: req.body, errors: error.errors });
+      });
+  },
+
+  id: function (req, res) {
     let idBuscado = Number(req.params.id);
     let productoPorId = null;
 
     db.Producto.findByPk(idBuscado, {
-        include: [
-            { association: 'comentarios' }  
-        ]
-    })  
-      .then(function(producto) {
+      include: [
+        { association: 'comentarios' }
+      ]
+    })
+      .then(function (producto) {
         if (producto) {
           productoPorId = producto;
         }
@@ -52,7 +79,7 @@ const productsController = {
           usuario: localData.usuario
         });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         res.send(error);
       });
   }
