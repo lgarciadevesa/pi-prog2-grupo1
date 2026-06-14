@@ -26,13 +26,14 @@
 				<li><a href="/">Todos los productos</a></li>
 				<li><a href="/products/add">Cargar producto</a></li>
 			</ul>
-			<ul class="right-navbar">
-				<li>
-					<a href="/users/profile/<%= usuarioLogueado.id %>">
-						<%= usuarioLogueado.usuario %> <i class="fas fa-user"></i>
-					</a>
-				</li>
-				<li>
+<ul class="right-navbar">
+	<li class="user-navbar-inline">
+		<p class="holaHeader">Hola</p>
+		<a class="userProfileLink" href="/users/profile/<%= usuarioLogueado.id %>">
+			<%= usuarioLogueado.usuario %> <i class="fas fa-user"></i>
+		</a>
+	</li>
+	<li>
 					<form action="/users/logout" method="post">
 						<button class="logout" type="submit">
 							Cerrar sesión <i class="fas fa-sign-in-alt"></i>

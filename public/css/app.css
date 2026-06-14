@@ -669,3 +669,20 @@ textarea.form-input {
     margin: auto;
   }
 }
+
+.user-navbar-inline {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.holaHeader {
+	margin: 0;
+	font-size: 1em;
+}
+
+.userProfileLink {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
