@@ -16,6 +16,8 @@ router.post('/update/:id', productController.update);
 
 router.post('/create', productController.create);
 
+router.post('/delete/:id', productController.delete);
+
 router.post('/addComentario/:id', productController.addComentario);
 
 module.exports = router;

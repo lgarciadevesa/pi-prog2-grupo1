@@ -124,7 +124,52 @@ const productsController = {
         console.log(error);
         res.redirect('/products/detalle/' + req.params.id);
       });
-  }
+  },
+
+delete: function(req, res){
+    let id = req.params.id;
+
+    if(req.session.user == undefined){
+        return res.redirect('/users/login');
+    }
+
+    db.Producto.findByPk(id)
+    .then(function(producto){
+        if(producto == null){
+            return res.redirect('/');
+        }
+
+        if(producto.idUsuario != req.session.user.id){
+            return res.redirect('/');
+        }
+
+        return db.Comentario.destroy({
+            where: {
+                idProducto: id
+            }
+        });
+    })
+    .then(function(){
+        return db.DetalleCompra.destroy({
+            where: {
+                idProducto: id
+            }
+        });
+    })
+    .then(function(){
+        return db.Producto.destroy({
+            where: {
+                id: id
+            }
+        });
+    })
+    .then(function(){
+        return res.redirect('/');
+    })
+    .catch(function(error){
+        return res.send(error);
+    });
+}
 };
 
 module.exports = productsController;
