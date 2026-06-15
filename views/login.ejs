@@ -29,6 +29,10 @@
 				<h1 class="formTitle">Login</h1>
 			</header>
 
+			<% if (typeof errors != 'undefined') { %>
+				<p class="error"><%= errors[0].message %></p>
+			<% } %>
+
 			<form class="formCustom" action="/users/processLogin" method="POST">
 
 				<article class="formGroup">
