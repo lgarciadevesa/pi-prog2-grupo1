@@ -37,25 +37,38 @@
 
 									<article class="formGroup">
 										<label class="formLabel" for="imagen">Imagen</label>
-										<input class="formInput" type="text" name="imagen" id="imagen" required>
+										<input class="formInput" type="text" name="imagen" id="imagen"
+											value="<%= locals.old !== undefined && old.imagen ? old.imagen : '' %>" required>
+										<% if (locals.errors && errors.imagen) { %>
+											<p class="feedback"><%= errors.imagen.msg %></p>
+										<% } %>
 									</article>
 
 									<article class="formGroup">
 										<label class="formLabel" for="productName">Nombre del producto</label>
 										<input class="formInput" type="text" name="nombre" id="productName"
-											required>
+											value="<%= locals.old !== undefined && old.nombre ? old.nombre : '' %>" required>
+										<% if (locals.errors && errors.nombre) { %>
+											<p class="feedback"><%= errors.nombre.msg %></p>
+										<% } %>
 									</article>
 
 									<article class="formGroup">
 										<label class="formLabel" for="description">Descripción</label>
 										<textarea class="formTextarea" name="descripcion" id="description"
-											required></textarea>
+											required><%= locals.old !== undefined && old.descripcion ? old.descripcion : '' %></textarea>
+										<% if (locals.errors && errors.descripcion) { %>
+											<p class="feedback"><%= errors.descripcion.msg %></p>
+										<% } %>
 									</article>
 
 									<article class="formGroup">
 										<label class="formLabel" for="marca">Marca</label>
 										<textarea class="formTextarea" name="marca" id="marca"
-											required></textarea>
+											required><%= locals.old !== undefined && old.marca ? old.marca : '' %></textarea>
+										<% if (locals.errors && errors.marca) { %>
+											<p class="feedback"><%= errors.marca.msg %></p>
+										<% } %>
 									</article>
 
 									<footer>

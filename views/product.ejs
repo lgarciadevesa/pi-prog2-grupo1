@@ -51,12 +51,12 @@
 						<section class="comments">
 							<% for (let i=0; i < data.comentarios.length; i++) { %>
 								<article>
-									<img src="/images/users/<%= data.comentarios[i].imagenPerfil %>"
-										alt="<%= data.comentarios[i].usuario %>">
+									<img src="/images/users/<%= data.comentarios[i].autor.fotoPerfil || 'profile-default.png' %>"
+										alt="<%= data.comentarios[i].autor.usuario %>">
 									<div class="data">
 										<p class="user">
-											<strong><a href="/users/profile">
-													<%= data.comentarios[i].usuario %>:
+											<strong><a href="/users/profile/<%= data.comentarios[i].autor.id %>">
+													<%= data.comentarios[i].autor.usuario %>:
 												</a></strong>
 											<%= data.comentarios[i].texto %>
 										</p>

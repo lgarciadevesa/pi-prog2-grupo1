@@ -1,9 +1,15 @@
-const localData = require('../localData/data');
+let db = require('../database/models');
 
 const indexController = {
 
   home: function(req, res) {
-    res.render('index', { products: localData.products });
+    db.Producto.findAll()
+      .then(function(products) {
+        res.render('index', { products: products });
+      })
+      .catch(function(error) {
+        res.send(error);
+      });
   }
 
 };

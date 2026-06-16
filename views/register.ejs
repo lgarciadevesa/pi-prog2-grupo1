@@ -33,17 +33,28 @@
 
 	<article class="formGroup">
 		<label class="formLabel" for="email">Email</label>
-		<input class="formInput" type="email" name="email" id="email" required>
+		<input class="formInput" type="email" name="email" id="email"
+			value="<%= locals.old !== undefined && old.email ? old.email : '' %>" required>
+		<% if (locals.errors && errors.email) { %>
+			<p class="feedback"><%= errors.email.msg %></p>
+		<% } %>
 	</article>
 
 	<article class="formGroup">
 		<label class="formLabel" for="usuario">Usuario</label>
-		<input class="formInput" type="text" name="usuario" id="usuario" required>
+		<input class="formInput" type="text" name="usuario" id="usuario"
+			value="<%= locals.old !== undefined && old.usuario ? old.usuario : '' %>" required>
+		<% if (locals.errors && errors.usuario) { %>
+			<p class="feedback"><%= errors.usuario.msg %></p>
+		<% } %>
 	</article>
 
 	<article class="formGroup">
 		<label class="formLabel" for="password">Contraseña</label>
 		<input class="formInput" type="password" name="password" id="password" required>
+		<% if (locals.errors && errors.password) { %>
+			<p class="feedback"><%= errors.password.msg %></p>
+		<% } %>
 	</article>
 
 	<footer>

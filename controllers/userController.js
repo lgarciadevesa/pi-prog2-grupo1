@@ -1,14 +1,23 @@
 let db = require('../database/models');
 let bcrypt = require('bcryptjs');
+const { validationResult } = require('express-validator');
 
 
 let usersController = {
   register: function (req, res) {
-    return res.render('register');
+     if (req.session.user !== undefined) {
+      return res.redirect('/users/profile/' + req.session.user.id);
+    } else {
+      return res.render('register', { });
+    }
   },
 
   login: function (req, res) {
-    return res.render('login');
+    if (req.session.user !== undefined) {
+      return res.redirect('/users/profile/' + req.session.user.id);
+    } else {
+      return res.render('login', { });
+    }
   },
 
   processLogin: function (req, res) {
@@ -43,6 +52,11 @@ let usersController = {
   },
 
   newUser: function (req, res) {
+    let errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.render('register', { errors: errors.mapped(), old: req.body });
+    }
+
     let passEncriptada = bcrypt.hashSync(req.body.password, 10);
     console.log(req.body);
     db.Usuario.create({

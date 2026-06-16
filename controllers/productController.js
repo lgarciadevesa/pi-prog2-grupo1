@@ -1,6 +1,7 @@
 const localData = require('../localData/data');
 let db = require("../database/models");
 const op = db.Sequelize.Op;
+const { validationResult } = require('express-validator');
 const productsController = {
   listar: function (req, res) {
     return res.render('product', { });
@@ -25,10 +26,23 @@ const productsController = {
   },
 
   add: function (req, res) {
+  if (req.session.user == undefined) {
+    return res.redirect('/users/login');
+  } else {
     return res.render('product-add', { });
-  },
+  }
+},
 
    create: function (req, res) {
+
+        if (req.session.user == undefined) {
+            return res.redirect('/users/login');
+        }
+
+        let errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.render('product-add', { errors: errors.mapped(), old: req.body });
+        }
 
         db.Producto.create({
           imagenProducto: req.body.imagen,
@@ -45,20 +59,17 @@ const productsController = {
                 res.render('product-add', { errors: error.errors });
             });
     },
-    edit: function (req, res) {
-        db.User.findByPk(req.params.id)
-            .then(function (user) {
-                res.render('edit', { user: user });
-            })
-            .catch(function (error) {
-                console.log(error);
-                res.redirect('/');
-            });
-    },
+    
 
   edit: function (req, res) {
+    if (req.session.user == undefined) {
+    return res.redirect('/users/login');
+    }
     db.Producto.findByPk(req.params.id)
       .then(function (producto) {
+        if (producto.idUsuario != req.session.user.id) {
+          return res.redirect('/');
+        }
         res.render('product-edit', { producto: producto });
       })
       .catch(function (error) {
@@ -68,18 +79,29 @@ const productsController = {
   },
 
   update: function (req, res) {
-    db.Producto.update({
-      nombreProducto: req.body.nombre,
-      descripcionProducto: req.body.descripcion,
-      imagenProducto: req.body.imagen,
-      marcaProducto: req.body.marca
-    }, {
-      where: {
-        id: req.params.id
-      }
-    })
-      .then(function () {
-        res.redirect('/');
+    if (req.session.user == undefined) {
+      return res.redirect('/users/login');
+    }
+
+    db.Producto.findByPk(req.params.id)
+      .then(function (producto) {
+        if (producto.idUsuario != req.session.user.id) {
+          return res.redirect('/');
+        }
+
+        return db.Producto.update({
+          nombreProducto: req.body.nombre,
+          descripcionProducto: req.body.descripcion,
+          imagenProducto: req.body.imagen,
+          marcaProducto: req.body.marca
+        }, {
+          where: {
+            id: req.params.id
+          }
+        })
+          .then(function () {
+            res.redirect('/');
+          });
       })
       .catch(function (error) {
         console.log(error);
@@ -93,7 +115,7 @@ const productsController = {
 
     db.Producto.findByPk(idBuscado, {
       include: [
-        { association: 'comentarios' }
+        { association: 'comentarios', include: [{ association: 'autor' }] }
       ]
     })
       .then(function (producto) {
@@ -112,6 +134,10 @@ const productsController = {
       });
   },
   addComentario: function (req, res) {
+    if (req.session.user == undefined) {
+      return res.redirect('/users/login');
+    }
+
     db.Comentario.create({
       texto: req.body.texto,
       idProducto: req.params.id,
